@@ -13,8 +13,7 @@ class ProdutosSeeder extends Seeder
     {
         Produto::create([
             'nome' => 'Pano',
-            'valor' => '9.99',
-            'qtd_produto' => '1'
+            'valor' => '9.99'
             ]
         );
     }

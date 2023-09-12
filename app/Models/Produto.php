@@ -11,8 +11,7 @@ class Produto extends Model
 
     protected $fillable = [
         'nome',
-        'valor',
-        'qtd_produto'
+        'valor'
     ];
 
     public function getProdutosPesquisarIndex(string $search = '')
