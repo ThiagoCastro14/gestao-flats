@@ -1,18 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\FornecedoresController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('index');
@@ -31,13 +22,13 @@ Route::prefix('produtos')->group(function () {
 });
 
 Route::prefix('fornecedores')->group(function () {
-    Route::get('/', [fornecedoresController::class, 'index'])->name('fornecedores.index');
+    Route::get('/', [FornecedoresController::class, 'index'])->name('fornecedor.index');
     // Criar Cadastro
-    Route::get('/cadastrarFornecedor', [FornecedoresController::class, 'cadastrarFornecedores'])->name('cadastrar.fornecedor');
-    Route::post('/cadastrarFornecedor', [FornecedoresController::class, 'cadastrarCliente'])->name('cadastrar.fornecedor');  
+    Route::get('/cadastrarFornecedor', [FornecedoresController::class, 'cadastrarFornecedor'])->name('cadastrar.fornecedor');
+    Route::post('/cadastrarFornecedor', [FornecedoresController::class, 'cadastrarFornecedor'])->name('cadastrar.fornecedor');  
     // Atualizar Cadastro
-    Route::get('/atualizarFornecedor/{id}', [FornecedoresController::class, 'atualizarCliente'])->name('atualizar.fornecedor');
-    Route::put('/atualizarFornecedor/{id}', [FornecedoresController::class, 'atualizarCliente'])->name('atualizar.fornecedor');  
+    Route::get('/atualizarFornecedor/{id}', [FornecedoresController::class, 'atualizarFornecedor'])->name('atualizar.fornecedor');
+    Route::put('/atualizarFornecedor/{id}', [FornecedoresController::class, 'atualizarFornecedor'])->name('atualizar.fornecedor');  
     //Deletar Cadastro
     Route::delete('/delete', [FornecedoresController::class, 'delete'])->name('fornecedor.delete');
 });
