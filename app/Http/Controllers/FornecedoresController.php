@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormRequestFornecedor;
 use App\Models\Componentes;
 use App\Models\Fornecedor;
 use Brian2694\Toastr\Facades\Toastr;
@@ -31,14 +32,12 @@ class FornecedoresController extends Controller
         return response()-> json(['success' => true]);
     }
 
-    public function cadastrarFornecedor(Request $request)
+    public function cadastrarFornecedor(FormRequestFornecedor $request)
     {
         if($request->method() == "POST"){
             // Cria os dados
-            $data = $request->all();
-            
+            $data = $request->all();            
             Fornecedor::create($data);
-
             Toastr::success('Gravado com sucesso');
             return redirect()->route('fornecedor.index');
         }
