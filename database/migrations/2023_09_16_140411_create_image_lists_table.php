@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('check_list_limpezas', function (Blueprint $table) {
+        Schema::create('image_lists', function (Blueprint $table) {
             $table->id();
-            $table->boolean('amenities')->default(false);
-            $table->boolean('enxovais')->default(false);
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('check_list_limpezas');
+        Schema::dropIfExists('image_lists');
     }
 };
