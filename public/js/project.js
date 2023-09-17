@@ -1,4 +1,4 @@
-function deleteRegistroPaginacao(rotaUrl, idDoRegistro){
+function deleteRegisterPagination(rotaUrl, idDoRegistro){
     
     if(confirm('Deseja confirmar a exclusão? ')){
         $.ajax({

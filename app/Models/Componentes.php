@@ -9,21 +9,21 @@ class Componentes extends Model
 {
     use HasFactory;
 
-    public function formatacaoMascaraDinheiroDecimal($valorFormatar)
+    public function formattingMoney($valueFormat)
     {
-        $tamanho = strlen($valorFormatar);
-        $dados = str_replace(',', '.', $valorFormatar);
-        if($tamanho <= 6){
-            $dados = str_replace(',', '.', $valorFormatar);
+        $size = strlen($valueFormat);
+        $data = str_replace(',', '.', $valueFormat);
+        if($size <= 6){
+            $data = str_replace(',', '.', $valueFormat);
         } else {
-            if($tamanho >= 8 && $tamanho <= 10){
-                $trocaVirgulaPorPonto = str_replace(',', '.', $valorFormatar);
-                $separaPorIndice = explode('.', $trocaVirgulaPorPonto);
-                $dados = $separaPorIndice[0] . $separaPorIndice[1];
+            if($size >= 8 && $size <= 10){
+                $changeSignal = str_replace(',', '.', $valueFormat);
+                $separete = explode('.', $changeSignal);
+                $data = $separete[0] . $separete[1];
             }
         }
 
-        return $dados;
+        return $data;
 
     }
 }
